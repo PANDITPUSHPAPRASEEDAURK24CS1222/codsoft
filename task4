@@ -1,0 +1,38 @@
+# Simple Rock-Paper-Scissors game
+
+round_number = 1
+
+while True:
+    print("\nRound", round_number)
+    print("Choose: rock, paper, or scissors")
+    user = input("Your choice: ").lower()
+
+    if user not in ["rock", "paper", "scissors"]:
+        print("Invalid input.")
+        continue
+
+    # Simulate computer choice (no random)
+    if round_number % 3 == 1:
+        computer = "rock"
+    elif round_number % 3 == 2:
+        computer = "paper"
+    else:
+        computer = "scissors"
+
+    print("Computer chose:", computer)
+
+    if user == computer:
+        print("It's a tie!")
+    elif (user == "rock" and computer == "scissors") or \
+         (user == "scissors" and computer == "paper") or \
+         (user == "paper" and computer == "rock"):
+        print("You win!")
+    else:
+        print("You lose!")
+
+    again = input("Play again? (yes/no): ").lower()
+    if again != "yes":
+        print("Game over.")
+        break
+
+    round_number += 1
