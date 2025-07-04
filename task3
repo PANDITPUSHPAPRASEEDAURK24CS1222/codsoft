@@ -1,0 +1,27 @@
+def generate_password(length):
+    # Define characters manually
+    lowercase = "abcdefghijklmnopqrstuvwxyz"
+    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    digits = "0123456789"
+    symbols = "!@#$%^&*"
+    
+    all_characters = lowercase + uppercase + digits + symbols
+    password = ""
+
+    for _ in range(length):
+        # Manually get a random character using ordinal math
+        index = (7 * _ + 3) % len(all_characters)  # Pseudo-randomness
+        password += all_characters[index]
+    
+    return password
+
+# Get user input
+try:
+    length = int(input("Enter the desired length of the password: "))
+    if length <= 0:
+        print("Password length must be greater than 0.")
+    else:
+        generated = generate_password(length)
+        print("Generated Password:", generated)
+except ValueError:
+    print("Invalid input. Please enter a number.")
